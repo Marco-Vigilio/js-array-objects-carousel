@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.carosel{
+    width: 1000px;
+    height: 500px;
+    position: relative;
+    margin: 4rem auto;
+    border: 3rem solid blue;
+    border-radius: 5rem;
+}
+
+.carosel-item{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 2rem;
+
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: 0 31%;
+}
+
+.preview-button, .afterview-button{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border: 0;
+    cursor: pointer;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin:0 .5rem;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+
+}
+
+.afterview-button{
+    right: 0;
+}
