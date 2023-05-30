@@ -64,10 +64,16 @@ const images = [
 let carousel = document.querySelector(".carousel");
 console.log(carousel);
 
-let carouselItem = createTag("div", "carousel-item");
+let carouselItem = createTagClass("div", "carousel-item");
 console.log(carouselItem);
 
-function createTag(tagElement, classElement){
+let img = document.createElement("img");
+img.src = images[1].image;
+
+carousel.append(carouselItem);
+carouselItem.append(img);
+
+function createTagClass(tagElement, classElement){
     let t = document.createElement(tagElement);
     t.classList.add(classElement);
     return t;
