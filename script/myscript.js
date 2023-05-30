@@ -62,23 +62,39 @@ const images = [
 ];
 
 let carousel = document.querySelector(".carousel");
-console.log(carousel);
 
-let carouselItem;
+let activeIndex = 4;
 
 images.forEach(element => {
-    carouselItem = document.createElement("div");
+    let carouselItem = document.createElement("div");
     carouselItem.classList.add("carousel-item")
-    console.log(carouselItem);
 
     let img = document.createElement("img");
-    //img.src = images[1].image;
-    
-    img = element.image;
+    img.src = element.image;
     carouselItem.append(img);
     carousel.append(carouselItem);
 });
 
+//INSERISCO L'IMMAGINE CHE VOGLIO CHE SI VISUALIZZI PER PRIMA (activeIndex)
+document.querySelectorAll("div.carousel-item")[activeIndex].classList.add("active");
+
+
+let bottomBefore = document.querySelector(".preview-button");
+
+bottomBefore.addEventListener("click", function(){
+
+    if(activeIndex == 0){
+        activeIndex = images.length - 1;
+    }
+    else{
+        activeIndex = activeIndex - 1;
+    }
+    document.querySelector("div.carousel-item.active").classList.remove("active");
+    document.querySelectorAll("div.carousel-item")[activeIndex].classList.add("active");
+});
+
+
+let bottomAfter = document.querySelector(".afterview");
 
 
 
