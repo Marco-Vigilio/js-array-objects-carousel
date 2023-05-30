@@ -64,17 +64,24 @@ const images = [
 let carousel = document.querySelector(".carousel");
 console.log(carousel);
 
-let carouselItem = createTagClass("div", "carousel-item");
-console.log(carouselItem);
+let carouselItem;
 
-let img = document.createElement("img");
-img.src = images[1].image;
+images.forEach(element => {
+    carouselItem = document.createElement("div");
+    carouselItem.classList.add("carousel-item")
+    console.log(carouselItem);
 
-carousel.append(carouselItem);
-carouselItem.append(img);
+    let img = document.createElement("img");
+    //img.src = images[1].image;
+    
+    img = element.image;
+    carouselItem.append(img);
+    carousel.append(carouselItem);
+});
 
-function createTagClass(tagElement, classElement){
-    let t = document.createElement(tagElement);
-    t.classList.add(classElement);
-    return t;
-}
+
+
+
+
+
+
