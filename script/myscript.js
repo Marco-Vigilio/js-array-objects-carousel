@@ -94,9 +94,18 @@ bottomBefore.addEventListener("click", function(){
 });
 
 
-let bottomAfter = document.querySelector(".afterview");
+let bottomAfter = document.querySelector(".afterview-button");
 
-
+bottomAfter.addEventListener("click", function(){
+    if(activeIndex == images.length - 1){
+        activeIndex = 0;
+    }
+    else{
+        activeIndex = activeIndex + 1;
+    }
+    document.querySelector("div.carousel-item.active").classList.remove("active");
+    document.querySelectorAll("div.carousel-item")[activeIndex].classList.add("active");
+});
 
 
 
