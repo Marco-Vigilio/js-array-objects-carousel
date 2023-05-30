@@ -23,8 +23,9 @@
 **la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura 
 **se l'utente clicca la freccia verso il basso.
 
-BONUS 1:
-Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
+/*
+//BONUS 1:
+//Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
 
 BONUS 2:
 Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) 
@@ -63,10 +64,10 @@ const images = [
 
 let carousel = document.querySelector(".carousel");
 
-let activeIndex = 2;
+let activeIndex = 0;
 
 //CREO I MIEI DIV CAROUSEL-ITEMS
-images.forEach(element => {
+let slide = images.forEach(element => {
     let carouselItem = document.createElement("div");
     carouselItem.classList.add("carousel-item")
 
@@ -89,6 +90,7 @@ images.forEach(element => {
 
 //INSERISCO L'IMMAGINE CHE VOGLIO CHE SI VISUALIZZI PER PRIMA (activeIndex)
 document.querySelectorAll("div.carousel-item")[activeIndex].classList.add("active");
+
 
 //AZIONE SE CLICCO FRECCIA PER ANDARE INDIETRO
 let bottomBefore = document.querySelector(".preview-button");
@@ -119,6 +121,24 @@ bottomAfter.addEventListener("click", function(){
     document.querySelectorAll("div.carousel-item")[activeIndex].classList.add("active");
 });
 
+//CAROUSEL IN AUTOMATICO
+function cambiaSlide() {
+    const slides = document.querySelectorAll(".carousel-item");
+    console.log(slides);
 
+    slides.forEach(element => {
+        element.classList.remove("active");
+    });
+    
+    indiceSlide++;
+    if (indiceSlide >= slides.length) {
+        indiceSlide = 0;
+    }
+  
+    slides[indiceSlide].classList.add('active');
+}
+  
 
-
+  let indiceSlide = 0;
+  //cambiaSlide();  
+  setInterval(cambiaSlide, 4000, );
