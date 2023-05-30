@@ -1,27 +1,27 @@
 /**
  * 
- * Consegna:
-Dato un array di oggetti letterali con:
-url dell’immagine
-titolo
-descrizione
-Creare un carosello come nella foto allegata.
+* * Consegna:
+**Dato un array di oggetti letterali con:
+**url dell’immagine
+**titolo
+**descrizione
+**Creare un carosello come nella foto allegata.
 
-Milestone 0:
-Come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: 
-costruiamo il container e inseriamo l'immagine grande in modo da poter stilare lo slider.
+**Milestone 0:
+**Come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: 
+**costruiamo il container e inseriamo l'immagine grande in modo da poter stilare lo slider.
 
-Milestone 1: 
-Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali 
-per popolare dinamicamente il carosello.
-Al click dell'utente sulle frecce verso sinistra o destra,
- l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
+**Milestone 1: 
+**Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali 
+**per popolare dinamicamente il carosello.
+**Al click dell'utente sulle frecce verso sinistra o destra,
+**l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
 
-Milestone 2:
-Aggiungere il ciclo infinito del carosello. 
-Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso l'alto, 
-la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura 
-se l'utente clicca la freccia verso il basso.
+**Milestone 2:
+**Aggiungere il ciclo infinito del carosello. 
+**Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso l'alto, 
+**la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura 
+**se l'utente clicca la freccia verso il basso.
 
 BONUS 1:
 Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
@@ -63,22 +63,34 @@ const images = [
 
 let carousel = document.querySelector(".carousel");
 
-let activeIndex = 4;
+let activeIndex = 2;
 
+//CREO I MIEI DIV CAROUSEL-ITEMS
 images.forEach(element => {
     let carouselItem = document.createElement("div");
     carouselItem.classList.add("carousel-item")
 
+    let h2 = document.createElement("h2");
+    h2.append(element.title);
+
+    let p = document.createElement("p");
+    p.append(element.text);
+
     let img = document.createElement("img");
     img.src = element.image;
-    carouselItem.append(img);
+    img.alt = `image of ${element.title}`;
+
     carousel.append(carouselItem);
+    carouselItem.append(h2);
+    carouselItem.append(p);
+    carouselItem.append(img);
+    
 });
 
 //INSERISCO L'IMMAGINE CHE VOGLIO CHE SI VISUALIZZI PER PRIMA (activeIndex)
 document.querySelectorAll("div.carousel-item")[activeIndex].classList.add("active");
 
-
+//AZIONE SE CLICCO FRECCIA PER ANDARE INDIETRO
 let bottomBefore = document.querySelector(".preview-button");
 
 bottomBefore.addEventListener("click", function(){
@@ -93,7 +105,7 @@ bottomBefore.addEventListener("click", function(){
     document.querySelectorAll("div.carousel-item")[activeIndex].classList.add("active");
 });
 
-
+//AZIONE SE CLICCO FRECCIA PER ANDARE AVANTI
 let bottomAfter = document.querySelector(".afterview-button");
 
 bottomAfter.addEventListener("click", function(){

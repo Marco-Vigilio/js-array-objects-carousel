@@ -4,6 +4,36 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: 0 31%;
+}
+
+h2, p{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+}
+
+h2{
+    top: 10%;
+    font-size: 2rem;
+}
+
+p{
+    top: 80%;
+    font-size: 1rem;
+    margin-right: 40rem;
+}
+
 .carousel {
     width: 1000px;
     height: 500px;
@@ -19,14 +49,7 @@
     overflow: hidden;
     border-radius: 1.5rem;
     display: none;
-}
-
-img{
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: 0 31%;
+    color: white;
 }
 
 .active{
