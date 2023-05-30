@@ -130,15 +130,12 @@ function cambiaSlide() {
         element.classList.remove("active");
     });
     
-    indiceSlide++;
-    if (indiceSlide >= slides.length) {
-        indiceSlide = 0;
+    activeIndex++;
+    if (activeIndex >= slides.length) {
+        activeIndex = 0;
     }
   
-    slides[indiceSlide].classList.add('active');
+    slides[activeIndex].classList.add('active');
 }
-  
-
-  let indiceSlide = 0;
   //cambiaSlide();  
   setInterval(cambiaSlide, 4000, );
